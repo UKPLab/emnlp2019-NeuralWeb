@@ -30,7 +30,7 @@ data = {
 }
 
 print(json.JSONEncoder().encode(data))
-host = 'neuralweb.ukp.informatik.tu-darmstadt.de'
+host = '0.0.0.0'
 port = '12890'
 path = '/api/external/v1/tag'
 
