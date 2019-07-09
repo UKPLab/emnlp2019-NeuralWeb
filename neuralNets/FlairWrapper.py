@@ -49,15 +49,25 @@ from nltk import sent_tokenize
 
 class FlairWrapper:
     def __init__(self, params=None, fn_log_info=None, fn_log_debug=None, training_token=None, training_prefix=None):
+        """initializes the configuration
 
+            Args:
+                params: not used yet
+                fn_log_info: not used yet
+                fn_log_debug: not used yet
+                training_token: not used yet
+                training_prefix: not used yet
+
+            """
         self.fn_log_info = fn_log_info
         self.fn_log_debug = fn_log_debug
         self.training_token = training_token
         self.training_prefix = training_prefix
 
+        # dictionary with sequence tags
         self.seq_tag_dicts = ['erg_sonstiges', 'erg_schreiben', 'erg_lesen', 'erg_leistung', 'erg_emotion', 'dia_sozial',
                      'dia_intelligenz', 'dia_autismus', 'dia_ADHS']
-
+        # dictionary with tag types for EDA
         self.eda_tag_types = [
             'DC',
             'EE',
@@ -85,6 +95,15 @@ class FlairWrapper:
         pass
 
     def loadModel(self, modelPath=None, paramsPath=None):
+        """loads the best model for the sequence tagging and EDA tagging task from a hardcoded path
+            loads also the excel-sheets which contain the diagnose for several cases and labels,
+            for example: case 1 (=Markus) and label "dia_ADHS_True" has a specific diagnose
+
+        Args:
+              modelPath: not used yet
+              paramsPath: not used yet
+
+        """
         if self.seq_tagger is None or self.eda_tagger is None:
             print("cur dir: ",os.getcwd())
             # print("os.path.isfile()",os.path.isfile("neuralNets/flair/resources/taggers/famulus_test_n_bert_long/best-model.pt"))
@@ -107,9 +126,11 @@ class FlairWrapper:
                 except:
                     raise Exception('No Pretrained Models found')
 
+        # casting excel sheets to a pandas-DataFrame
         self.seq_df = pd.read_excel("neuralNets/flair/resources/AdaptFEEDBACKmaster.xlsx")
         self.eda_df = pd.read_excel("neuralNets/flair/resources/EDAs-AdaptFEEDBACKmaster.xlsx")
 
+        # extract the labels from the excel-sheets for sequence and EDA
         self.seq_df["Labels"] = self.seq_df["Labels"].replace(' ', '_')
         self.seq_df["Labels"] = [i.replace(' ', '_') for i in self.seq_df["Labels"].tolist()]
 
@@ -374,6 +395,14 @@ class FlairWrapper:
 
 
     def tag_and_create_feedback(self, request):
+        """tagging the sequences and returning the predicted diagnose
+
+             Args:
+                   request (dict): Request for a diagnose as a dict.-object from a client
+             Return:
+                 dict: dictionary with the content and reasoning
+
+             """
         text = base64.b64decode(request.json["text"]).decode('utf-8')
         user = request.json["user"]
         case = request.json["case"]
