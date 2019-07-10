@@ -217,3 +217,24 @@ To receive feedback regarding argument structure using a specific model and the 
 * `client_external_partner_tagging.py` - An example of expected external partner's tagging request.
 * `IOB_to_CAS_file_generartor.py` - An example of transforming IOB tagged files into CAS XMI. Some example of IOB files used are form [Neural-Web Training Experiment project](https://git.ukp.informatik.tu-darmstadt.de/ibna/neural-web-train-exp/tree/master/trainDocuments/).
 
+
+# Web-Frontend for automatic feedback (for Flair)
+
+The frontend in `web_client_external_partner_feedback.py`  starts a web server with Flask, to send a request with the description of the case to the server to get a medical diagnose.
+The frontend contains a text box for the description and a button to submit it to the server.
+
+The server is run by default at `host 0.0.0.0` and `port 12892`. This can be changed as a parameter in the `app.run` function which is called within that file. By default the Server is started locally and in debug mode. To start the server in production mode, a production WSGI-Server should be used instead.
+
+By calling the URL `http://0.0.0.0/predict` in a Web-Browser after starting this server by executing `web_client_external_partner_feedback.py`, the frontend for requesting the diagnose is shown. If that URL is called, the server executes the function `api_feedback_with_model()` and it renders the frontend by utilizing `main.html`. After submitting the request, the text is encoded as `json` before it is sent in the function `encode_request_json`. The function `api_feedback_with_model()` is called again when the request is submitted, but with the text from the text box as parameter. 
+
+After encoding the request as `json` in the function `encode_request_json(text)`, the function `send_response(data)` is called where the request is sent to the flair-server for processing the request. In `send_response(data)` the flair-server is specified by it its host-address, port and URL to be called. 
+
+By default the following information for the flair-server is set:
+
+* host = `0.0.0.0`
+* port = `12892`
+* path = `/api/external/v1/feedback/flair`
+
+The results are sent back to `api_feedback_with_model()` where it shows the result under the form. The results contain the information for `content` and `reasoning`.  
+
+`main.html` which is used by this server to render the frontend, outputs the form with the text box and submit button. When the flair-server sends a response, it extracts the information out of the response `json`-object and adds it to the HTML-`div`-tags with IDs `content` and `reasoning` the respective information.

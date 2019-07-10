@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfa8e00a-6fcd-4b0b-bcaf-d721de3a6433" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exmaples/static/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exmaples/static/d3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exmaples/static/jquery-1.8.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exmaples/templates/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exmaples/web_client_external_partner_feedback.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshots/flair_frontend_screenshot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuralNets/FlairWrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuralNets/FlairWrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuralNets/flair/resources/.~lock.AdaptFEEDBACKmaster.xlsx#" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,21 +51,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="md" value="1" />
           <entry key="py" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Markdown" value="1" />
           <entry key="Python" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="md" value="234" />
           <entry key="py" value="1006" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Markdown" value="234" />
           <entry key="Python" value="1006" />
         </counts>
       </usages-collector>
@@ -77,17 +77,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/synchronized_class_decorator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/trainDataProcessor.py">
           <provider selected="true" editor-type-id="text-editor" />
@@ -158,14 +147,26 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neuralNets/FlairWrapper.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="158">
-              <caret line="402" column="36" selection-start-line="402" selection-start-column="36" selection-end-line="402" selection-end-column="36" />
+              <caret line="402" column="33" selection-start-line="402" selection-start-column="33" selection-end-line="402" selection-end-column="33" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="316">
+                <caret line="240" lean-forward="true" selection-start-line="240" selection-end-line="240" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -190,6 +191,7 @@
         <option value="$PROJECT_DIR$/exmaples/client_external_partner_feedback.py" />
         <option value="$PROJECT_DIR$/exmaples/client_external_partner_tagging.py" />
         <option value="$PROJECT_DIR$/neuralNets/FlairWrapper.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -221,60 +223,7 @@
             <path>
               <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="docker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="exmaples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="neuralNets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="neuralNets" type="462c0819:PsiDirectoryNode" />
-              <item name="flair" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="neuralNets" type="462c0819:PsiDirectoryNode" />
-              <item name="flair" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="automatic_feedback" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="automatic_feedback" type="462c0819:PsiDirectoryNode" />
-              <item name="Feedback_creator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="emnlp2019-NeuralWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="emnlp2019-NeuralWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="automatic_feedback" type="462c0819:PsiDirectoryNode" />
-              <item name="Stringmatcher" type="462c0819:PsiDirectoryNode" />
+              <item name="screenshots" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -289,7 +238,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screenshots" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/exmaples" />
     </key>
   </component>
@@ -339,7 +292,7 @@
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -354,7 +307,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.329927" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.329927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -486,10 +439,20 @@
     <entry file="file://$PROJECT_DIR$/neuralNets/FlairWrapper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
-          <caret line="402" column="36" selection-start-line="402" selection-start-column="36" selection-end-line="402" selection-end-column="36" />
+          <caret line="402" column="33" selection-start-line="402" selection-start-column="33" selection-end-line="402" selection-end-column="33" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="316">
+            <caret line="240" lean-forward="true" selection-start-line="240" selection-end-line="240" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
