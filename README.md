@@ -220,21 +220,62 @@ To receive feedback regarding argument structure using a specific model and the 
 
 # Web-Frontend for automatic feedback (for Flair)
 
-The frontend in `web_client_external_partner_feedback.py`  starts a web server with Flask, to send a request with the description of the case to the server to get a medical diagnose.
-The frontend contains a text box for the description and a button to submit it to the server.
+Steps:
 
-The server is run by default at `host 0.0.0.0` and `port 12892`. This can be changed as a parameter in the `app.run` function which is called within that file. By default the Server is started locally and in debug mode. To start the server in production mode, a production WSGI-Server should be used instead.
+1. Start backend Flair-Server from the project directory: 
 
-By calling the URL `http://0.0.0.0/predict` in a Web-Browser after starting this server by executing `web_client_external_partner_feedback.py`, the frontend for requesting the diagnose is shown. If that URL is called, the server executes the function `api_feedback_with_model()` and it renders the frontend by utilizing `main.html`. After submitting the request, the text is encoded as `json` before it is sent in the function `encode_request_json`. The function `api_feedback_with_model()` is called again when the request is submitted, but with the text from the text box as parameter. 
+    `python3 app.py [config]` 
+    
+    By default, the address and port set in util.config.py will be used. 
+    Depending on whether dev or prod chosen, different ip-address port is used.
+    The server is run by default at `host 0.0.0.0` and `port 12892`. 
+    This can be changed as a parameter in the `app.run` function which is called within that file. 
+    By default the Server is started locally and in debug mode. To start the server in production mode, a production WSGI-Server should be used instead.
 
-After encoding the request as `json` in the function `encode_request_json(text)`, the function `send_response(data)` is called where the request is sent to the flair-server for processing the request. In `send_response(data)` the flair-server is specified by it its host-address, port and URL to be called. 
+    `config` can be filled with values `dev` or `prod`. It is required to put the models for sequence-tagging and EDA as `best-model.pt` into `neuralNets/flair/resources/taggers/seq/` and `neuralNets/flair/resources/taggers/eda/` respectively.
 
-By default the following information for the flair-server is set:
+2. Start frontend Web-Server, which accepts requests submitted 
+    in the web form and forward it to the Flair-Server for processing:
 
-* host = `0.0.0.0`
-* port = `12892`
-* path = `/api/external/v1/feedback/flair`
+    `python3 exmaples/web_client_external_partner_feedback.py`
+    
+    The frontend in `web_client_external_partner_feedback.py`  starts a web server with Flask, to send a request with the description of the case to the server to get a medical diagnose.
+    The frontend contains a text box for the description and a button to submit it to the server.
+    After encoding the request as `json` in the function `encode_request_json(text)`, the function `send_response(data)` is called where the request is sent to the flair-server for processing the request. 
+    In `send_response(data)` the flair-server is specified by it its host-address, port and URL to be called. 
 
-The results are sent back to `api_feedback_with_model()` where it shows the result under the form. The results contain the information for `content` and `reasoning`.  
+3. Call the ip and port of the started Web-Server from browser:
+    
+    `http://0.0.0.0:5000/predict`
+    
+    By calling the URL `http://0.0.0.0/predict` in a Web-Browser after starting this server by executing `web_client_external_partner_feedback.py`, the frontend for requesting the diagnose is shown. 
+    If that URL is called, the server executes the function `api_feedback_with_model()` and it renders the frontend by utilizing `main.html`. 
+    After submitting the request, the text is encoded as `json` before it is sent in the function `encode_request_json`. 
+    The function `api_feedback_with_model()` is called again when the request is submitted, but with the text from the text box as parameter. 
 
-`main.html` which is used by this server to render the frontend, outputs the form with the text box and submit button. When the flair-server sends a response, it extracts the information out of the response `json`-object and adds it to the HTML-`div`-tags with IDs `content` and `reasoning` the respective information.
+    The results are sent back to `api_feedback_with_model()` where it shows the result under the form. The results contain the information for `content` and `reasoning`.  
+
+    `main.html` which is used by this server to render the frontend, outputs the form with the text box and submit button. 
+    When the flair-server sends a response, it extracts the information out of the response `json`-object and adds it to the HTML-`div`-tags with IDs `content` and `reasoning` the respective information.
+    
+4. Type in the text to be tagged and after submitting, the response is returned
+
+# EDA Sequence-Tagging Training with flair
+
+Steps:
+
+1. Rename training files for training, testing and dev to `eda_train.txt`, `eda_test.txt` and `eda_dev.txt` and put them into folder `neuralNets/flair/data/`.
+    
+2. Start Training:
+
+    `python3 neuralNets/flair/train_eda.py`
+    
+    In this process the following procedure is done:
+     
+    1. retrieve corpus
+    2. specifying the tags to predict
+    3. initialize word-, char- and flair-embeddings
+    4. initialize sequence-tagger with embeddings, tag-types, tag-dictionary
+    5. initialize model-trainer with sequence-tagger and corpus
+    6. start training. Default file path for model is `resources/taggers/famulus_eda_test_n_bert_long2`
+    7. plot loss and weights
